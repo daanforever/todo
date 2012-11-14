@@ -1,0 +1,86 @@
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :crypted_password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :crypted_password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_salt, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password_salt, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :persistence_token, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :persistence_token, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :single_access_token, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :single_access_token, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :perishable_token, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :perishable_token, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :login_count, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :login_count, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :failed_login_count, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :failed_login_count, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_request_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :last_request_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_login_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :current_login_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_login_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :last_login_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_login_ip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_login_ip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_login_ip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_login_ip, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
+  </div>
+<% end %>
