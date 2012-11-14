@@ -22,7 +22,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'authlogic'
 gem 'thin'
 gem 'dynamic_form'
 

@@ -1,11 +1,4 @@
 Todo::Application.routes.draw do
-  
-  resources :roles
-
-  resources :users
-  resources :user_sessions
-  match 'login' => 'user_sessions#new', :as => :new_user_session
-  match 'logout' => 'user_sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
