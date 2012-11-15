@@ -29,6 +29,9 @@ gem 'dynamic_form'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'flash_messages_helper'
 
+# Authorization
+gem 'devise'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
