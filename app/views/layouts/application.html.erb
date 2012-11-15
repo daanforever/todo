@@ -47,7 +47,12 @@
           <a class="brand" href="/">Todo</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Main", '/' %></li>
+              <li><%= link_to t(:roles), roles_path %></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><%= link_to t(:sign_in), new_user_session_path unless user_signed_in? %></li>
+              <li><%= link_to t(:sign_up), new_user_registration_path unless user_signed_in? %></li>
+              <li><%= link_to t(:sign_out), destroy_user_session_path, :method => :delete if user_signed_in? %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -58,7 +63,6 @@
         <div class="row">
           <div class="span12">
              <%= flash_messages %>
-             <p><pre><%= current_user %></pre></p>
           </div><!-- /span -->
         </div><!-- /row -->
         <div class="row">
