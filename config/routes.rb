@@ -1,5 +1,7 @@
 Todo::Application.routes.draw do
 
+  resources :tasks
+
   resources :roles
 
   devise_for :users
