@@ -1,5 +1,7 @@
 Todo::Application.routes.draw do
 
+  resources :roles
+
   devise_for :users
 
   # The priority is based upon order of creation:
