@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_and_belongs_to_many :role
+  has_many :task
 
   def role?(testrole)
     role.any?{ |s| s.name.downcase.to_sym == testrole.downcase }

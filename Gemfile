@@ -35,6 +35,10 @@ gem 'devise'
 # Authorization
 gem 'cancan'
 
+
+group :development do
+  gem 'hirb'
+end
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
