@@ -1,5 +1,8 @@
 == Dan ToDo list project
 
+=== Tests
+Use rspec for tests 
+
 TODO:
   Make possible attach images or specify by url
 

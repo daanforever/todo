@@ -39,6 +39,11 @@ gem 'cancan'
 group :development do
   gem 'hirb'
 end
+
+group :test do
+  gem 'factory_girl'
+  gem "rspec-rails", "~> 2.0"
+end
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
