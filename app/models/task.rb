@@ -1,4 +1,4 @@
 class Task < ActiveRecord::Base
-  attr_accessible :text
   belongs_to :user
+  attr_accessible :message
 end

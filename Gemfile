@@ -27,7 +27,6 @@ gem 'dynamic_form'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'flash_messages_helper'
 
 # Authentication
 gem 'devise'
@@ -43,6 +42,7 @@ end
 group :test do
   gem 'factory_girl'
   gem "rspec-rails", "~> 2.0"
+  gem 'database_cleaner'
 end
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
