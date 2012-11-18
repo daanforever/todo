@@ -18,7 +18,7 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails' # good web bootstrap from twitter
 end
 
 gem 'jquery-rails'
@@ -26,23 +26,25 @@ gem 'thin'
 gem 'dynamic_form'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'   # strong encryption
 
-# Authentication
-gem 'devise'
 
-# Authorization
-gem 'cancan'
+gem 'devise'                    # Authentication
+gem 'cancan'                    # Authorization
 
 
 group :development do
-  gem 'hirb'
+  gem 'hirb'                    # pretty output in rails console
+  gem "rspec-rails", "~> 2.0"   # test suite
+  gem 'guard-rspec'
 end
 
 group :test do
-  gem 'factory_girl'
-  gem "rspec-rails", "~> 2.0"
+  gem 'factory_girl_rails'
+  gem "rspec-rails", "~> 2.0"   # test suite
+  gem 'guard-rspec'
   gem 'database_cleaner'
+  gem 'spork'                   # faster to start rspec
 end
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
