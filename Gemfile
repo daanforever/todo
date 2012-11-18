@@ -38,7 +38,6 @@ group :development do
   gem 'spork'                   # faster to start rspec
   gem "rspec-rails", "~> 2.0"   # test suite
   gem 'guard-rspec'             # automaticaly test runner
-  gem 'guard-spork'             # automaticaly test runner
   gem 'rb-inotify'
 end
 
@@ -46,6 +45,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem "rspec-rails", "~> 2.0"   # test suite
 end
 
 # To use Jbuilder templates for JSON
