@@ -4,11 +4,11 @@ describe "tasks/index" do
   before(:each) do
     assign(:tasks, [
       stub_model(Task,
-        :message => "Message",
+        :text => "Message",
         :created_at => Time.now()
       ),
       stub_model(Task,
-        :message => "Message",
+        :text => "Message",
         :created_at => Time.now()
       )
     ])

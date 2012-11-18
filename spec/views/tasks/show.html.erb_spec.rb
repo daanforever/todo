@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "tasks/show" do
   before(:each) do
     @task = assign(:task, stub_model(Task,
-      :message => "Message"
+      :text => "Message"
     ))
   end
 

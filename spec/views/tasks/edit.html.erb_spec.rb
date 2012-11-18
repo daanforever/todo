@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "tasks/edit" do
   before(:each) do
     @task = assign(:task, stub_model(Task,
-      :message => "MyString"
+      :text => "MyString"
     ))
   end
 
@@ -12,7 +12,7 @@ describe "tasks/edit" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => tasks_path(@task), :method => "post" do
-      assert_select "input#task_message", :name => "task[message]"
+      assert_select "input#task_text", :name => "task[text]"
     end
   end
 end

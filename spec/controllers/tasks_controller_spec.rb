@@ -13,10 +13,10 @@ require 'spec_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 #
 # Compared to earlier versions of this generator, there is very limited use of
-# stubs and message expectations in this spec.  Stubs are only used when there
+# stubs and text expectations in this spec.  Stubs are only used when there
 # is no simpler way to get a handle on the object needed for the example.
 # Message expectations are only used when there is no simpler way to specify
-# that an instance is receiving a specific message.
+# that an instance is receiving a specific text.
 
 describe TasksController do
 
@@ -24,7 +24,7 @@ describe TasksController do
   # Task. As you add validations to Task, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "message" => "MyString" }
+    { "text" => "MyString" }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -105,14 +105,14 @@ describe TasksController do
         it "assigns a newly created but unsaved task as @task" do
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
-          post :create, {:task => { "message" => "invalid value" }}
+          post :create, {:task => { "text" => "invalid value" }}
           assigns(:task).should be_a_new(Task)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
-          post :create, {:task => { "message" => "invalid value" }}
+          post :create, {:task => { "text" => "invalid value" }}
           response.should render_template("new")
         end
       end
@@ -125,10 +125,10 @@ describe TasksController do
           task = FactoryGirl.create(:task)
           # Assuming there are no other tasks in the database, this
           # specifies that the Task created on the previous line
-          # receives the :update_attributes message with whatever params are
+          # receives the :update_attributes text with whatever params are
           # submitted in the request.
-          Task.any_instance.should_receive(:update_attributes).with({ "message" => "MyString" })
-          put :update, {:id => task.to_param, :task => { "message" => "MyString" }}, valid_session
+          Task.any_instance.should_receive(:update_attributes).with({ "text" => "MyString" })
+          put :update, {:id => task.to_param, :task => { "text" => "MyString" }}, valid_session
         end
 
         it "assigns the requested task as @task" do
@@ -149,7 +149,7 @@ describe TasksController do
           task = FactoryGirl.create(:task)
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
-          put :update, {:id => task.to_param, :task => { "message" => "invalid value" }}
+          put :update, {:id => task.to_param, :task => { "text" => "invalid value" }}
           assigns(:task).should eq(task)
         end
 
@@ -157,7 +157,7 @@ describe TasksController do
           task = FactoryGirl.create(:task)
           # Trigger the behavior that occurs when invalid params are submitted
           Task.any_instance.stub(:save).and_return(false)
-          put :update, {:id => task.to_param, :task => { "message" => "invalid value" }}
+          put :update, {:id => task.to_param, :task => { "text" => "invalid value" }}
           response.should render_template("edit")
         end
       end # context
