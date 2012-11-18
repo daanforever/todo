@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :role
   has_many :task
 
-  def role?(testrole)
-    role.any?{ |s| s.name.downcase.to_sym == testrole.downcase }
-  end
+  # def role?(testrole)
+  #   role.any?{ |s| s.name.downcase.to_sym == testrole.downcase }
+  # end
+
+  rolify
 end
