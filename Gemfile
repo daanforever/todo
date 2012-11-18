@@ -35,17 +35,19 @@ gem 'cancan'                    # Authorization
 
 group :development do
   gem 'hirb'                    # pretty output in rails console
+  gem 'spork'                   # faster to start rspec
   gem "rspec-rails", "~> 2.0"   # test suite
-  gem 'guard-rspec'
+  gem 'guard-rspec'             # automaticaly test runner
+  gem 'guard-spork'             # automaticaly test runner
+  gem 'rb-inotify'
 end
 
 group :test do
   gem 'factory_girl_rails'
-  gem "rspec-rails", "~> 2.0"   # test suite
-  gem 'guard-rspec'
+  gem 'capybara'
   gem 'database_cleaner'
-  gem 'spork'                   # faster to start rspec
 end
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
