@@ -1,15 +1,12 @@
 Todo::Application.routes.draw do
 
-  get "users/index"
-
-  get "users/show"
-
   resources :tasks
-
   resources :roles
 
   devise_for :users
   resources  :users
+
+  root :to => 'tasks#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

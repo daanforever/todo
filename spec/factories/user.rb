@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :user do
-    email "someuser@email.address"
+    sequence(:email) { |n| "someuser#{n}@email.com"}
     password "SomeStrongPassword"
-    password_confirmation 'SomeStrongPassword'
+    password_confirmation { |u| u.password }
   end
 
   factory :admin, class: User do
-    email "someadmin@email.address"
+    sequence(:email) { |n| "someadmin#{n}@email.com"}
     password "SomeStrongPassword"
-    password_confirmation 'SomeStrongPassword'
+    password_confirmation { |u| u.password }
   end
 end

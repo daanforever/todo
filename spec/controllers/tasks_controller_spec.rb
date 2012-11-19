@@ -51,8 +51,17 @@ describe TasksController do
         response.should be_success
       end
 
+      it "should be visible tasks only for current user" do
+        # pending
+        task1 = FactoryGirl.create(:task, :user => @user)
+        task2 = FactoryGirl.create(:task, :user => FactoryGirl.create(:user))
+        get :index
+        assigns(:tasks).should include(task1)
+        assigns(:tasks).should_not include(task2)
+      end
+
       it "assigns all tasks as @tasks" do
-        task = FactoryGirl.create(:task)
+        task = FactoryGirl.create(:task, :user => @user)
         get :index
         assigns(:tasks).should eq([task])
       end
@@ -121,14 +130,13 @@ describe TasksController do
     describe "PUT update" do
       context "with valid params" do
         it "updates the requested task" do
-          pending
           task = FactoryGirl.create(:task)
           # Assuming there are no other tasks in the database, this
           # specifies that the Task created on the previous line
           # receives the :update_attributes text with whatever params are
           # submitted in the request.
           Task.any_instance.should_receive(:update_attributes).with({ "text" => "MyString" })
-          put :update, {:id => task.to_param, :task => { "text" => "MyString" }}, valid_session
+          put :update, {:id => task.to_param, :task => { "text" => "MyString" }}
         end
 
         it "assigns the requested task as @task" do

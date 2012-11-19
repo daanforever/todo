@@ -15,7 +15,7 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= link_to task.id, task_path(task) %></td>
-        <td><%= task.text %></td>
+        <td><%= link_to task.text, task_path(task) %></td>
         <td><%=l task.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

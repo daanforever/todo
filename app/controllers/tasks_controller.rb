@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.where(:user_id => current_user.id)
+    # @tasks = Task.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +45,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @task.user = current_user
 
     respond_to do |format|
       if @task.save
