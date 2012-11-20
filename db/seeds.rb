@@ -6,10 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Role.create(:name => 'admin')
+Role.create(:name => 'user')
 
+user1 = User.create(:email => 'test1@user.be', :password => 'notsecure', 
+                    :password_confirmation => 'notsecure')
+user2 = User.create(:email => 'test2@user.be', :password => 'notsecure', 
+                    :password_confirmation => 'notsecure')
 
-user1 = User.create(:email => 'test1@user.be', :password => 'notsecure', :password_confirmation => 'notsecure')
-user2 = User.create(:email => 'test2@user.be', :password => 'notsecure', :password_confirmation => 'notsecure')
+user1.add_role :admin
+user2.add_role :user
 
 Task.create(:text => 'Task1 from User1', :user => user1)
 Task.create(:text => 'Task2 from User2', :user => user2)

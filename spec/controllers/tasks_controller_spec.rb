@@ -35,7 +35,7 @@ describe TasksController do
   end
 
   context "without login" do
-    it "should redirect to sign in page" do
+    it "redirect to sign in page" do
       get :index, {}
       response.should redirect_to(new_user_session_path)
     end
@@ -46,12 +46,12 @@ describe TasksController do
     login_user
 
     describe "GET index" do
-      it "shold be success" do
+      it "should be success" do
         get :index
         response.should be_success
       end
 
-      it "should be visible tasks only for current user" do
+      it "show tasks only for current user" do
         # pending
         task1 = FactoryGirl.create(:task, :user => @user)
         task2 = FactoryGirl.create(:task, :user => FactoryGirl.create(:user))

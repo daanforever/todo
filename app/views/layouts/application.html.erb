@@ -48,6 +48,7 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to t(:roles), roles_path %></li>
+              <li><%= link_to t(:users), users_path %></li>
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to t(:sign_in), new_user_session_path unless user_signed_in? %></li>
