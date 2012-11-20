@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "roles/index" do
   before(:each) do
     assign(:roles, [
-      stub_model(Role, { :created_at => Time.now() }),
-      stub_model(Role, { :created_at => Time.now()})
+      stub_model(Role, {:created_at => Time.now()}),
+      stub_model(Role, {:created_at => Time.now()})
     ])
   end
 

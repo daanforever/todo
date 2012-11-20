@@ -34,14 +34,14 @@ describe TasksController do
     {}
   end
 
-  context "without login" do
+  context "without authentication" do
     it "redirect to sign in page" do
       get :index, {}
       response.should redirect_to(new_user_session_path)
     end
   end
 
-  context "after login" do
+  context "after authentication" do
 
     login_user
 
