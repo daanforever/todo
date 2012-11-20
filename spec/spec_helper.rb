@@ -49,10 +49,10 @@ Spork.prefork do
       config.include Devise::TestHelpers, :type => :controller
       config.extend ControllerMacros, :type => :controller
 
-      config.before(:suite) do
-        DatabaseCleaner.strategy = :truncation
-        DatabaseCleaner.clean_with(:truncation)
-      end
+      # config.before(:suite) do
+      #   DatabaseCleaner.strategy = :truncation
+      #   DatabaseCleaner.clean_with(:truncation)
+      # end
 
       # config.before(:each) do
       #   DatabaseCleaner.start
