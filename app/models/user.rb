@@ -12,9 +12,13 @@ class User < ActiveRecord::Base
 
   has_many :task
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids
 
   validates :email, :presence => true
   validates :email, :uniqueness => { :case_sensitive => false }
+
+  # def roles=(role_id)
+  #   self.add_role(Role.find(role_id).name)
+  # end
 
 end
