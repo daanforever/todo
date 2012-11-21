@@ -4,5 +4,6 @@
 Use rspec for tests 
 
 TODO:
-  Make possible attach images or specify by url
++ Make possible attach images or specify by url
++ Deploy via capistrano
 
