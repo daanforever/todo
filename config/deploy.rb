@@ -24,17 +24,17 @@ set :user, "dan"
 namespace :deploy do
   desc "Start the Thin processes"
   task :start do
-    run "cd #{deploy_to}/current && bundle exec thin start -C config/thin.yml"
+    run "cd #{deploy_to}/current && bundle exec thin -C config/thin.yml start"
   end
 
   desc "Stop the Thin processes"
   task :stop do
-    run "cd #{deploy_to}/current && bundle exec thin stop -C config/thin.yml"
+    run "cd #{deploy_to}/current && bundle exec thin -C config/thin.yml stop"
   end
 
   desc "Restart the Thin processes"
   task :restart do
-    run "cd #{deploy_to}/current && bundle exec thin restart -C config/thin.yml"
+    run "test -e tmp/pids/thin.pid && bundle exec thin -C config/thin.yml restart || bundle exec thin -C config/thin.yml start"
   end
 
 end
