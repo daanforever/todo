@@ -1,5 +1,6 @@
 set :application, "todo"
 set :repository,  "ssh://git@dron.me/opt/git/todo.git"
+set :branch, "master"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
