@@ -65,7 +65,7 @@ module Todo
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end # config.generators
 
-    config.action_controller.relative_url_root = '/todo'
+    # config.action_controller.relative_url_root = '/todo'
 
   end
 end

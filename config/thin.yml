@@ -12,3 +12,4 @@ max_persistent_conns: 64
 server: 1
 daemonize: true
 chdir: /opt/apps/todo/current
+prefix: /todo
