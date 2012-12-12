@@ -36,5 +36,12 @@ namespace :deploy do
   task :restart do
     run "cd #{deploy_to}/current; test -e tmp/pids/thin.3000.pid && bundle exec thin -C config/thin.yml stop; RAILS_RELATIVE_URL_ROOT=/todo bundle exec thin -C config/thin.yml start"
   end
-
 end
+
+namespace :db do
+  task :db_config, :except => { :no_release => true }, :role => :app do
+    run "cp -f /opt/apps/todo/shared/database.yml #{release_path}/config/database.yml"
+  end
+end
+
+after "deploy:finalize_update", "db:db_config"
