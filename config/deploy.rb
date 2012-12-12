@@ -34,7 +34,7 @@ namespace :deploy do
 
   desc "Restart the Thin processes"
   task :restart do
-    run "cd #{deploy_to}/current; test -e tmp/pids/thin.pid && bundle exec thin -C config/thin.yml restart || bundle exec thin -C config/thin.yml start"
+    run "cd #{deploy_to}/current; test -e tmp/pids/thin.3000.pid && bundle exec thin -C config/thin.yml restart || bundle exec thin -C config/thin.yml start"
   end
 
 end
