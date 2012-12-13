@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
   # authentification
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable, # :registerable
 
   # authorization
   rolify  
