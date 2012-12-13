@@ -6,20 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Role.create(:name => 'admin')
-Role.create(:name => 'user')
+Role.find_or_create_by_name('admin')
+Role.find_or_create_by_name('user')
 
-unless User.find(:email => 'admin@localhost.localdomain') do 
-  user1 = User.create(:email => 'admin@localhost.localdomain', :password => 'notsecure', 
-                      :password_confirmation => 'notsecure')
-  # user2 = User.create(:email => 'test2@user.be', :password => 'notsecure', 
-  #                     :password_confirmation => 'notsecure')
-
-  user1.add_role :admin
-  # user2.add_role :user
-
-  Task.create(:text => 'First task', :user => user1)
-end
-# Task.create(:text => 'Task2 from User2', :user => user2)
-# Task.create(:text => 'Task3 from User1', :user => user1)
-# Task.create(:text => 'Task4 from User2', :user => user2)
+user1 = User.find_or_create_by_email( :email => 'admin@localhost.localdomain', 
+                                      :password => 'notsecure', 
+                                      :password_confirmation => 'notsecure')
+user1.add_role :admin
+Task.find_or_create_by_text(:text => 'First task', :user => user1)

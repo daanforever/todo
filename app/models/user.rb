@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   # authentification
   devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable #, :registerable
+         :recoverable, :rememberable, :trackable, :validatable, :registerable
 
   # authorization
   rolify  

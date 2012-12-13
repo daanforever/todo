@@ -3,7 +3,12 @@ Todo::Application.routes.draw do
   resources :tasks
   resources :roles
 
-  devise_for :users
+  if Rails.env == 'production'
+    devise_for :users, :controllers => { :registrations => "registrations" } 
+  else
+    devise_for :users
+  end
+  
   resources  :users
   root :to => 'tasks#index'
 
