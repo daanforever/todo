@@ -1,0 +1,26 @@
+<%- model_class = Task -%>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td width="50%"><%= link_to task.text, task_path(task) %></td>
+        <td width="30%"><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td width="20%">
+          <%= link_to '',
+                            task_up_path(task), 
+                            :remote => true,
+                            :class => 'btn btn-mini icon-arrow-up' %>
+          <%= link_to '',
+                            task_down_path(task), 
+                            :remote => true,
+                            :class => 'btn btn-mini icon-arrow-down' %>
+          <%= link_to '',
+                      edit_task_path(task), :class => 'btn btn-mini btn-info icon-edit' %>
+          <%= link_to '',
+                      task_path(task),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger icon-remove' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>

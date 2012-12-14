@@ -65,6 +65,7 @@ describe TasksController do
         get :index
         assigns(:tasks).should eq([task])
       end
+
     end # describe
 
     describe "GET show" do

@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(:user_id => current_user.id)
+    @tasks = Task.where(:user_id => current_user.id).order('priority desc')
     # @tasks = Task.all
 
     respond_to do |format|
@@ -83,6 +83,45 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
+    end
+  end
+
+  def up
+    task = Task.find(params[:task_id])
+    onCurrentPriority = Task.where(:user_id => current_user.id).where("priority = #{task.priority}").count
+    if (onCurrentPriority > 1) then
+        task.priority += 1
+    else
+      nextTask = Task.where(:user_id => current_user.id).where("priority > #{task.priority}").order(:priority).limit(1).first
+      if nextTask then
+        task = Task.find(params[:task_id])
+        task.priority, nextTask.priority = nextTask.priority, task.priority
+        nextTask.save
+      end
+    end
+      task.save
+    # Ignore errors!
+    @tasks = Task.where(:user_id => current_user.id).order('priority desc')
+    respond_to do |format|
+      format.html { render :partial => 'tasks' }
+      format.json { render json: @tasks }
+      format.js   { }
+    end
+  end
+
+  def down
+    task = Task.find(params[:task_id])
+    nextTask = Task.where(:user_id => current_user.id).where("priority < #{task.priority}").order('priority desc').limit(1).first
+    if nextTask then
+      task.priority, nextTask.priority = nextTask.priority, task.priority
+      nextTask.save
+      task.save
+    end
+    @tasks = Task.where(:user_id => current_user.id).order('priority desc')
+    respond_to do |format|
+      format.html { render :partial => 'tasks' }
+      format.json { render json: @tasks }
+      format.js   { }
     end
   end
 end

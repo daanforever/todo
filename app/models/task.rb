@@ -3,5 +3,4 @@ class Task < ActiveRecord::Base
   attr_accessible :text, :user
   validates :text, :user, :presence => 'true'
   resourcify
-
 end

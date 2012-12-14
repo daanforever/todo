@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Tasks" do
-  context "without login" do
+  context "without authentication" do
     describe "GET /tasks" do
       it "should redirect to new_user_session_path" do
         get tasks_path
@@ -9,4 +9,5 @@ describe "Tasks" do
       end
     end # describe
   end # context
+
 end # describe

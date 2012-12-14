@@ -1,6 +1,10 @@
 Todo::Application.routes.draw do
 
-  resources :tasks
+  resources :tasks do
+    get 'up'
+    get 'down'
+  end
+
   resources :roles
 
   if Rails.env == 'production'

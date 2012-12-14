@@ -7,3 +7,22 @@ en:
   sign_in: "Sign In"
   sign_out: "Sign Out"
   sign_up: "Sign Up"
+
+  activerecord:
+    attributes:
+      user:
+        email: "email"
+        password: "password"
+
+  devise:
+    shared:
+      links:
+        sign_in: "Sign in"
+
+  helpers:
+    links:
+      destroy: "Delete"
+      edit: "Edit"
+
+    actions: "Actions"
+

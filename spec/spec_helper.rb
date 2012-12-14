@@ -1,8 +1,12 @@
+ENV["RAILS_ENV"] = 'test'
+
 require 'rubygems'
 require 'spork'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
+require 'capybara/rails'
 
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
@@ -14,7 +18,6 @@ Spork.prefork do
 
     # Requires supporting ruby files with custom matchers and macros, etc,
     # in spec/support/ and its subdirectories.
-    ENV["RAILS_ENV"] ||= 'test'
     Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 
@@ -48,18 +51,19 @@ Spork.prefork do
 
       config.include Devise::TestHelpers, :type => :controller
       config.extend ControllerMacros, :type => :controller
+      config.include FeatureHelperMethods, :type => :feature
 
-      # config.before(:suite) do
-      #   DatabaseCleaner.strategy = :truncation
-      #   DatabaseCleaner.clean_with(:truncation)
-      # end
+      config.before(:suite) do
+        DatabaseCleaner.strategy = :truncation
+        DatabaseCleaner.clean_with(:truncation)
+      end
 
-      # config.before(:each) do
-      #   DatabaseCleaner.start
-      # end
-      # config.after(:each) do
-      #   DatabaseCleaner.clean
-      # end
+      config.before(:each) do
+        DatabaseCleaner.start
+      end
+      config.after(:each) do
+        DatabaseCleaner.clean
+      end
     end # RSpec.configure
 
 end
