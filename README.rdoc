@@ -3,8 +3,8 @@
 === Tests
 Use rspec for tests 
 
-TODO:
-+ Make possible attach images or specify by url
-- Deploy through capistrano
-+ Create priority, sort by priority and up/down task priority
+=== TODO:
+ + Make possible attach images or specify by url
+ - Deploy through capistrano
+ + Create priority, sort by priority and up/down task priority
 
