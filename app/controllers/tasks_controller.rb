@@ -38,6 +38,7 @@ class TasksController < ApplicationController
   # Edit specified task
   def edit
     @task = Task.find(params[:id])
+    @colors = Color.all
   end
 
   # Create task

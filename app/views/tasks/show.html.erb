@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
+<dl class="dl-horizontal <%= @task.color.name if @task.color %>">
   <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
   <dd><%= @task.text %></dd>
 </dl>

@@ -8,6 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
+
+.colorBlue  { color: #3344AA; background-color: #DDEEFF; }
+.colorBlue a { color: #3344AA; background-color: #DDEEFF; }
+
+.colorGreen { color: #33AA44; background-color: #EEFFDD; }
+.colorGreen a { color: #33AA44; background-color: #EEFFDD; }
+
+.colorRed   { color: #AA4433; background-color: #FFDDEE; }
+.colorRed   a { color: #AA4433; background-color: #FFDDEE; }

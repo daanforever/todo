@@ -1,9 +1,9 @@
 <%- model_class = Task -%>
-<table class="table table-striped">
+<table class="table">
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td width="60%"><%= link_to task.text, task_path(task) %></td>
+        <td width="60%" class="<%= task.color ? task.color.name : "defaultColor" %>"><%= link_to truncate(task.text, :length => 50), task_path(task) %></td>
         <td width="20%"><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
         <td width="20%">
           <%= link_to '',

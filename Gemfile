@@ -53,6 +53,7 @@ group :test do
   gem 'capybara'                # user expirience testing
   gem 'database_cleaner'        # helper gem for rspec
 end
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

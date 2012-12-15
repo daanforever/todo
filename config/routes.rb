@@ -1,5 +1,7 @@
 Todo::Application.routes.draw do
 
+  resources :colors
+
   resources :tasks do
     get 'up'
     get 'down'
