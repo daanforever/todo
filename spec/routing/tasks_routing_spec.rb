@@ -31,5 +31,13 @@ describe TasksController do
       delete("/tasks/1").should route_to("tasks#destroy", :id => "1")
     end
 
+    it "routes to #up" do
+      get("/tasks/1/up").should route_to("tasks#up", :task_id => "1")
+    end
+
+    it "routes to #down" do
+      get("/tasks/1/down").should route_to("tasks#down", :task_id => "1")
+    end
+
   end
 end

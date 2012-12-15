@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Role do
   describe "create()" do
     context "without :name" do
-      it "not be valid" do
+      it "be not valid" do
         role = Role.new()
         role.should_not be_valid
       end
