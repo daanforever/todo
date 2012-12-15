@@ -39,7 +39,7 @@ describe TasksController do
       get :index, {}
       response.should redirect_to(new_user_session_path)
     end
-  end
+  end # context "without authentication"
 
   context "after authentication" do
 
@@ -187,6 +187,24 @@ describe TasksController do
       end
     end # describe
 
-  end # context
+    describe "GET /tasks/1/up" do
+      it "should increase priority of task" do
+        task1 = FactoryGirl.create(:task, :user => @user, :priority => 1)
+        task2 = FactoryGirl.create(:task, :user => @user, :priority => 2)
+        get :up, {:task_id => task1.to_param}
+        assigns(:tasks).find(task1).priority.should eq(task2.priority)
+      end
+    end
+
+    describe "GET /tasks/1/down" do
+      it "should decrease priority of task" do
+        task1 = FactoryGirl.create(:task, :user => @user, :priority => 1)
+        task2 = FactoryGirl.create(:task, :user => @user, :priority => 2)
+        get :down, {:task_id => task2.to_param}
+        assigns(:tasks).find(task2).priority.should eq(task1.priority)
+      end
+    end
+
+  end # context "after authentication"
 
 end

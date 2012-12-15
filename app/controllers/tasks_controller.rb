@@ -88,19 +88,20 @@ class TasksController < ApplicationController
     onCurrentPriority = Task.where(:user_id => current_user.id).where("priority = #{task.priority}").count
     if (onCurrentPriority > 1) then
         task.priority += 1
+        task.save
     else
       nextTask = Task.where(:user_id => current_user.id).where("priority > #{task.priority}").order(:priority).limit(1).first
       if nextTask then
         task = Task.find(params[:task_id])
         task.priority, nextTask.priority = nextTask.priority, task.priority
         nextTask.save
+        task.save
       end
     end
-      task.save
     # Ignore errors!
     @tasks = Task.where(:user_id => current_user.id).order('priority desc')
     respond_to do |format|
-      format.html { render :partial => 'tasks' }
+      format.html { render action: "index" }
       format.json { render json: @tasks }
       format.js   { }
     end
@@ -117,7 +118,7 @@ class TasksController < ApplicationController
     end
     @tasks = Task.where(:user_id => current_user.id).order('priority desc')
     respond_to do |format|
-      format.html { render :partial => 'tasks' }
+      format.html { render action: "index" }
       format.json { render json: @tasks }
       format.js   { }
     end

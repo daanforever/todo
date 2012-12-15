@@ -10,7 +10,6 @@ describe Role do
     end
     context "with :name" do
       it "be valid" do
-        pending
         role = Role.new(:name => 'testrole')
         role.should be_valid
       end

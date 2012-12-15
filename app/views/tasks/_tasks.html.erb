@@ -2,8 +2,8 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td width="50%"><%= link_to task.text, task_path(task) %></td>
-        <td width="30%"><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td width="60%"><%= link_to task.text, task_path(task) %></td>
+        <td width="20%"><%= task.created_at.strftime("%Y/%m/%d %H:%M") %></td>
         <td width="20%">
           <%= link_to '',
                             task_up_path(task), 

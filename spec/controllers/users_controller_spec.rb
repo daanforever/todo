@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe UsersController do
 
-  login_user
-
   context "without login" do
     it "should redirect to sign in page" do
-      pending
+      get 'index'
+      response.should redirect_to(new_user_session_path)
     end
   end # context
 
   context "after login" do
+
+    login_user
+
     describe "GET 'index'" do
       it "returns http success" do
         get 'index'
