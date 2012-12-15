@@ -1,4 +1,4 @@
-module BootstrapFlashHelper  
+module BootstrapFlashHelper  # :nodoc: all
   def bootstrap_flash
    flash_messages = []
    flash.each do |type, message|

@@ -1,2 +1,2 @@
-module TasksHelper
+module TasksHelper # :nodoc: all
 end

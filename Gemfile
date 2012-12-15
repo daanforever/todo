@@ -34,6 +34,9 @@ gem 'devise'                    # Authentication
 gem 'cancan'                    # Authorization
 gem 'rolify'                    # Roles
 
+group :development do
+  gem "rails-erd"               # rails documentation diagrams
+end
 
 group :test, :development do
   gem 'hirb'                    # pretty output in rails console

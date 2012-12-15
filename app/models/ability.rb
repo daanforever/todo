@@ -1,6 +1,11 @@
+##
+# Class used by <tt>'gem cancan'</tt> and <tt>'gem rolify'</tt>
+# for declare user permissions
+
 class Ability
   include CanCan::Ability
 
+  # Internal method for CanCan
   def initialize(user)
 
     if user.has_role? :admin

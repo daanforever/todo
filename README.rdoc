@@ -1,10 +1,23 @@
 == Dan ToDo list project
 
-=== Tests
-Use rspec for tests 
-
 === TODO:
- + Make possible attach images or specify by url
- - Deploy through capistrano
- + Create priority, sort by priority and up/down task priority
+ * Make possible attach images or specify by url
+ * Deploy through capistrano
+ * Create priority, sort by priority and up/down task priority
+==== Tests
+ * Use rspec for tests 
+
+=== How to start server:
+==== In development environment
+ rails s thin
+
+==== In production environment
+ thin -C config/thin.yml start
+
+=== How to stop server
+==== In development environment
+ Press CTRL-C to stop server
+
+==== In production environment
+ thin -C config/thin.yml stop
 

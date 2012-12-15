@@ -1,9 +1,10 @@
+# Main class for task interaction
+
 class TasksController < ApplicationController
 
   before_filter :authenticate_user!
 
-  # GET /tasks
-  # GET /tasks.json
+  # Show all tasks for current user
   def index
     @tasks = Task.where(:user_id => current_user.id).order('priority desc')
     # @tasks = Task.all
@@ -14,8 +15,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
+  # Show specified task for current user
   def show
     @task = Task.find(params[:id])
 
@@ -25,8 +25,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
+  # Show form for new task
   def new
     @task = Task.new
 
@@ -36,13 +35,12 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1/edit
+  # Edit specified task
   def edit
     @task = Task.find(params[:id])
   end
 
-  # POST /tasks
-  # POST /tasks.json
+  # Create task
   def create
     @task = Task.new(params[:task])
     @task.user = current_user
@@ -58,8 +56,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # PUT /tasks/1
-  # PUT /tasks/1.json
+  # Update task
   def update
     @task = Task.find(params[:id])
 
@@ -74,8 +71,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
+  # Delete task
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
@@ -86,6 +82,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # Increase priority for task
   def up
     task = Task.find(params[:task_id])
     onCurrentPriority = Task.where(:user_id => current_user.id).where("priority = #{task.priority}").count
@@ -109,6 +106,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # Decrease priority for task
   def down
     task = Task.find(params[:task_id])
     nextTask = Task.where(:user_id => current_user.id).where("priority < #{task.priority}").order('priority desc').limit(1).first

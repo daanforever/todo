@@ -1,3 +1,5 @@
+# Basic class for setup User's roles
+
 class RolesController < ApplicationController
 
   before_filter :authenticate_user!
