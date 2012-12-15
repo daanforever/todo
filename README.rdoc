@@ -6,6 +6,7 @@
  * Create priority, sort by priority and up/down task priority
 ==== Tests
  * Use rspec for tests 
+ + Create shared test in tasks_controller_spec for #up and #down
 
 === How to start server:
 ==== In development environment
